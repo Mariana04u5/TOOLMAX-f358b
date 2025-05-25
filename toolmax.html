@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOOLMAX - Renta de Maquinaria y Herramientas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    header img {
+      max-height: 100px;
+    }
+    nav {
+      background-color: #444;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+    section.hero {
+      background-color: #ffe600;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    section.hero h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    section.hero p {
+      font-size: 1.2em;
+    }
+    .search-bar {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .search-bar input {
+      padding: 10px;
+      width: 60%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    section.maquinaria {
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card h3 {
+      margin-top: 10px;
+    }
+    .card p {
+      font-size: 0.9em;
+    }
+    form.contacto {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    form.contacto input, form.contacto textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    form.contacto button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="/mnt/data/309f46cf-6311-4afb-819f-72104aa8de9f.png" alt="TOOLMAX Logo">
+  </header>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Maquinaria</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section class="hero" id="inicio">
+    <h1>Bienvenido a TOOLMAX</h1>
+    <p>Conectamos a empresas de renta de maquinaria con emprendedores de PYMES</p>
+  </section>
+
+  <div class="search-bar">
+    <input type="text" id="buscador" placeholder="Buscar maquinaria por nombre o tipo..." onkeyup="filtrarMaquinaria()">
+  </div>
+
+  <section class="maquinaria" id="servicios">
+    <div class="card">
+      <i class="fas fa-truck-monster fa-3x"></i>
+      <h3>Excavadoras</h3>
+      <p>Desde $2,000 MXN por día</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-hammer fa-3x"></i>
+      <h3>Herramientas eléctricas</h3>
+      <p>Desde $200 MXN por día</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-cogs fa-3x"></i>
+      <h3>Generadores</h3>
+      <p>Desde $500 MXN por día</p>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <form class="contacto">
+      <h2>Contáctanos</h2>
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Tu correo electrónico" required>
+      <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Contacto: contacto@toolmax.com | Tel: 01 800 000 0000</p>
+    <p>&copy; 2025 TOOLMAX. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function filtrarMaquinaria() {
+      const input = document.getElementById('buscador').value.toLowerCase();
+      const cards = document.querySelectorAll('.maquinaria .card');
+      cards.forEach(card => {
+        const titulo = card.querySelector('h3').textContent.toLowerCase();
+        if (titulo.includes(input)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
